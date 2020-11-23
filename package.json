@@ -1,0 +1,49 @@
+{
+  "name": "adonisjs-inertia",
+  "version": "0.0.1",
+  "author": "elyion",
+  "description": "Inertia.js server-side for AdonisJs v5",
+  "main": "build/providers/InertiaProvider.js",
+  "files": [
+    "build/adonis-typings",
+    "build/providers",
+    "build/src"
+  ],
+  "typings": "./build/adonis-typings/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elyion/adonisjs-inertia.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc",
+    "mrm": "mrm --preset=@adonisjs/mrm-preset"
+  },
+  "dependencies": {
+    "he": "^1.2.0"
+  },
+  "devDependencies": {
+    "@adonisjs/core": "^5.0.1",
+    "@adonisjs/mrm-preset": "^2.4.0",
+    "@adonisjs/view": "^3.0.8",
+    "@types/he": "^1.1.1",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-adonis": "^1.0.15",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mrm": "^2.5.12",
+    "prettier": "^2.2.0",
+    "typescript": "^4.1.2"
+  },
+  "adonisjs": {
+    "types": "adonisjs-inertia",
+    "providers": [
+      "adonisjs-inertia"
+    ],
+    "templates": {
+      "config": [
+        "inertia.txt"
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+import { InertiaConfig } from '@ioc:Elyion/Inertia'
+
+const inertiaConfig: InertiaConfig = {
+    /*
+    |--------------------------------------------------------------------------
+    | Main Inertia View Template
+    |--------------------------------------------------------------------------
+    |
+    | The Edge view template that your application will use when a request
+    | that is not an Inertia AJAX is made.
+    |
+    | View the Instructions.md for how to configure this Edge view template.
+    |
+    */
+    mainView: 'main'
+}
