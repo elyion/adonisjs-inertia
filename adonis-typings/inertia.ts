@@ -11,19 +11,18 @@
  * 2020 - ELYION TECHNOLOGIES
  */
 
-
 declare module '@ioc:Elyion/Inertia' {
-    /**
-     * Interface for the Inertia configuration.
-     */
-    export interface InertiaConfig {
-        mainView: string
-    }
+	/**
+	 * Interface for the Inertia configuration.
+	 */
+	export interface InertiaConfig {
+		mainView: string
+	}
 
-    /**
-     * Interface for the Inertia HttpContext.
-     */
-    export interface InertiaContract {
-        handle(component: string, props: any, edgeParameters: any): void
-    }
+	/**
+	 * Interface for the Inertia HttpContext.
+	 */
+	export interface InertiaContract {
+		handle(component: string, props: any, edgeParameters: any): void
+	}
 }

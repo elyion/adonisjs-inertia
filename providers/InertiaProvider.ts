@@ -15,18 +15,19 @@ import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 import Inertia from '../src/Inertia'
 
 export default class InertiaProvider {
-    constructor(protected app: ApplicationContract) {}
+	constructor(protected app: ApplicationContract) {}
 
-    public boot(): void {
-        this.app.container.with(['Adonis/Core/HttpContext'], (HttpContext) => {
-            const inertiaConfig = this.app.config.get('inertia', {})
+	public boot(): void {
+		this.app.container.with(['Adonis/Core/HttpContext'], (HttpContext) => {
+			const inertiaConfig = this.app.config.get('inertia', {})
 
-            HttpContext.getter('inertia',
-                function inertia() {
-                    return new Inertia(this, inertiaConfig)
-                },
-                true
-            )
-        })
-    }
+			HttpContext.getter(
+				'inertia',
+				function inertia() {
+					return new Inertia(this, inertiaConfig)
+				},
+				true
+			)
+		})
+	}
 }
