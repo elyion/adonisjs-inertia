@@ -8,7 +8,8 @@
     "build/adonis-typings",
     "build/providers",
     "build/src",
-    "build/templates"
+    "build/templates",
+    "instructions.md"
   ],
   "typings": "./build/adonis-typings/index.d.ts",
   "repository": {
