@@ -16,6 +16,7 @@ import Inertia from '../src/Inertia'
 
 export default class InertiaProvider {
 	constructor(protected app: ApplicationContract) {}
+	public static needsApplication = true
 
 	public boot(): void {
 		this.app.container.with(['Adonis/Core/HttpContext'], (HttpContext) => {
