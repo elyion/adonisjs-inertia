@@ -14,7 +14,7 @@
 declare module '@ioc:Adonis/Core/HttpContext' {
 	import { InertiaContract } from '@ioc:Elyion/Inertia'
 
-	interface HttpSessionContract {
+	interface HttpContextContract {
 		inertia: InertiaContract
 	}
 }

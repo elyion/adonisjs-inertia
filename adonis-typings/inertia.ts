@@ -23,6 +23,10 @@ declare module '@ioc:Elyion/Inertia' {
 	 * Interface for the Inertia HttpContext.
 	 */
 	export interface InertiaContract {
-		handle(component: string, props: any, edgeParameters: any): void
+		handle(component: string, props: any, edgeParameters: any | undefined): void
+		isAjaxRequest(): boolean
+		hasVersionChanged(): boolean
+		forceReloadIfNeeded(): void
+		transformRedirectsIfNeeded(): void
 	}
 }

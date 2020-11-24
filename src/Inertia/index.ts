@@ -29,8 +29,42 @@ export default class Inertia implements InertiaContract {
 		protected readonly config: InertiaConfig
 	) {}
 
-	private isAjaxRequest() {
-		return this.context.request.header(Inertia.HEADERS.INERTIA) !== undefined
+	public isAjaxRequest(): boolean {
+		const { request } = this.context
+
+		return request.header(Inertia.HEADERS.INERTIA) !== undefined
+	}
+
+	public hasVersionChanged(): boolean {
+		return false
+	}
+
+	private shouldForceReload(): boolean {
+		return this.isAjaxRequest() && this.hasVersionChanged()
+	}
+
+	public forceReloadIfNeeded() {
+		const { request, response } = this.context
+
+		if (this.shouldForceReload()) {
+			response.status(409).header(Inertia.HEADERS.LOCATION, request.url())
+		}
+	}
+
+	private shouldTransformRedirect(): boolean {
+		const { request, response } = this.context
+
+		return (
+			['PUT', 'PATCH', 'DELETE'].includes(request.method()) && response.response.statusCode === 302
+		)
+	}
+
+	public transformRedirectsIfNeeded() {
+		const { response } = this.context
+
+		if (this.shouldTransformRedirect()) {
+			response.status(303)
+		}
 	}
 
 	public handle(component: string, props: any, edgeParameters: any) {
