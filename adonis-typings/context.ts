@@ -1,5 +1,5 @@
 /**
- * adonis-typings/index
+ * context
  * adonisjs-inertia
  *
  * Created by Fineas Gavre on 24/11/2020.
@@ -11,5 +11,10 @@
  * 2020 - ELYION TECHNOLOGIES
  */
 
-/// <reference path="./inertia.ts" />
-/// <reference path="./context.ts" />
+declare module '@ioc:Adonis/Core/HttpContext' {
+	import { InertiaContract } from '@ioc:Elyion/Inertia'
+
+	interface HttpSessionContract {
+		inertia: InertiaContract
+	}
+}
